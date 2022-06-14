@@ -1,20 +1,33 @@
 #Kelompok6
 
 import random
+import time
 
-tester = str(random.randint(0000, 9999))
-if len(tester) == 3:
-    tester = "0" + tester
-count = 0
-number = ""
-for ret in range(4):
-    for i in range(10):
-        if str(i) == tester[ret]:
-            number = number + str(i)
-            count += 1
-            break
-        else:
-            count += 1
+def backtrack():
+    start_time = time.perf_counter_ns()
 
-print("number ",number," tester ",tester)
-print(count)
+    tester = str(3542)
+    if len(tester) == 3:
+        tester = "0" + tester
+    count = 0
+    number = ""
+    for ret in range(4):
+        for i in range(10):
+            if str(i) == tester[ret]:
+                number = number + str(i)
+                count += 1
+                break
+            else:
+                count += 1
+        
+    print("number ",number," tester ",tester)
+    print(count)
+    end_time = time.perf_counter_ns()
+    time_lapsed = end_time - start_time
+
+    
+    print("time taken =", time_lapsed)
+
+    #Main Program
+print("Backtracking: ")
+backtrack()
